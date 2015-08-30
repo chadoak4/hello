@@ -17,9 +17,8 @@ Winner of the match wins $100,000,000!
 """
 puts """
 Here we go!!
-
 """
-
+@replay_input = "yes"
 @player_count = 0
 @comp_count = 0
 
@@ -36,10 +35,10 @@ def game
 
 @comp_input = [@rock, @paper, @scissors].sample
 
-puts "Player Score: #{@player_count} \tComputer Score: #{@comp_count}"
+  puts "Player Score: #{@player_count} \tComputer Score: #{@comp_count}"
 
-print "Rock, Paper, Scissors, schute: "
-player_input = gets.chomp.upcase
+  print "Rock, Paper, Scissors, schute: "
+  player_input = gets.chomp.upcase
 
   if player_input == @rock && @comp_input == @scissors
     puts "Player chose rock. \nComputer chose scissors."
@@ -88,6 +87,13 @@ player_input = gets.chomp.upcase
   @bout_lose += 1
   end
 
+  if @bout_win == 2 || @bout_lose == 2
+   puts "Game Over! Would you like to play again?(yes or no)"
+   @replay_input = gets.chomp
+  end
+  if @replay_input == "yes".downcase
+  end
 end
-game until @bout_win == 2 || @bout_lose == 2
-  puts "We have a Winner!!"
+
+
+game until @replay_input != "yes"
