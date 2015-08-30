@@ -28,10 +28,12 @@ Here we go!!
 @comp_input = [@rock, @paper, @scissors].sample
 @bout_win = 0
 @bout_lose = 0
-
-puts @comp_input
+@match_win = 0
+@match_lose = 0
 
 def game
+
+leader_board = [@player_input_match_win, @comp_input_match_win]
 
 @comp_input = [@rock, @paper, @scissors].sample
 
@@ -87,13 +89,18 @@ def game
   @bout_lose += 1
   end
 
-  if @bout_win == 2 || @bout_lose == 2
-   puts "Game Over! Would you like to play again?(yes or no)"
+  if @bout_win == 2
+    @match_win += 1
+  elsif  @bout_lose == 2
+    @match_lose += 1
+   puts """
+   Leader Board is as follows:
+   You:#{@match_win}
+   Computer:#{@match_lose}
+   Game Over! Would you like to play again?(yes or no)"""
    @replay_input = gets.chomp
   end
   if @replay_input == "yes".downcase
   end
 end
-
-
 game until @replay_input != "yes"
