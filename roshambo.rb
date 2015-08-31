@@ -4,11 +4,14 @@ f.each_line { |line|
   puts line
 }
 f.close
+
 print ">"
+
 name = gets.chomp.capitalize
+
   if name == ""
   exit
-else file='welcome3.txt'
+  else file='welcome3.txt'
   f = File.open(file, "r")
   f.each_line { |line|
     puts line
@@ -31,9 +34,9 @@ else file='welcome3.txt'
 
 def game
 
-leader_board = [@player_input_match_win, @comp_input_match_win]
+  leader_board = [@player_input_match_win, @comp_input_match_win]
 
-@comp_input = [@rock, @paper, @scissors].sample
+  @comp_input = [@rock, @paper, @scissors].sample
 
   puts "Player Score: #{@player_count} \tDwights Score: #{@comp_count}"
 
@@ -125,4 +128,5 @@ leader_board = [@player_input_match_win, @comp_input_match_win]
     end
   end
 end
+
 game until @replay_input != "yes"
